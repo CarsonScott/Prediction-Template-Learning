@@ -14,8 +14,9 @@ Vector Network::updatePrediction(Vector in, Vector temp, float discount)
 Network::Network(int input_length, float rate)
 {
     input = createVector(input_length, 0);
-    decay_rate = 1/pow(input_length, 5);
     threshold = 10;
+    decay_rate = 1/pow(threshold, 5);
+
     learning_rate = rate;
     current_error = 0;
     prediction = 0;
