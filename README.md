@@ -1,9 +1,9 @@
 # Template Prediction Learning
-The Template Prediction Learning algorithm (TPL) is an online learning algorithm that makes predictions to improve itself.
-
-States are stored in state-pairs as "templates". A state-pair represents a state transition from an initial state to the following state. The state templates are adjusted according to some measured error between the ideal (stored) and measured (actual) input. This expectation-maximization process drives the system toward the lowest possible error measurement between ideal and measured states.
+The Template Prediction Learning algorithm (TPL) is an online learning algorithm that makes predictions about the environment to improve itself.
 
 ## System Structure
+States are stored in state-pairs as "templates". A state-pair represents a state transition from an initial state to the following state. The state templates are adjusted according to some measured error between the ideal (stored) and measured (actual) input. This expectation-maximization process drives the system toward the lowest possible error measurement between ideal and measured states.
+
 The structure is an abstraction of a multilayer perceptron in which the state-pairs correspond with hidden units and the predicted state values with output units. The input layer remains the same (i.e. propagates signals from the environment to the hidden layer).
 
 At each time step the TPL has three main responsibilities. First, the input is compared to a selected state (prediction) from the previous time step. The prediction's state-pair (for which it is the final state) is updated to better resemble the measured input. 
