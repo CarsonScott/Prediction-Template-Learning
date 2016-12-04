@@ -6,6 +6,4 @@ States are stored in state-pairs as "templates". A state-pair represents a state
 ## Network Structure
 The structure is an abstraction of a multilayer perceptron in which the state-pairs correspond with hidden units and the predicted state is the output layer. The input layer remains the same (i.e. propagates signals from the environment to the hidden layer). 
 
-PN's diverge from MLP's during the learning process. The hidden units are updated by comparing the predicted initial and final states to the actual states and correcting the error. The adjusted state-pair has a closer resemblence to the measured states, and thus provides more accurate predictions for the future.
-
-The hidden layer is the only adaptive component and is responsible for the network's development as a whole. 
+TPN diverges from MLP with its learning process. The hidden layer is the only adaptable component and is responsible for the network's development as a whole. Hidden units are updated by comparing the predicted initial and final states to the actual states and correcting the error. The adjusted state-pair has a closer resemblence to the measured states, and thus provides more accurate predictions for the future.
