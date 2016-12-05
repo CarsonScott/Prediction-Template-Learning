@@ -14,7 +14,7 @@ Vector Network::updatePrediction(Vector in, Vector temp, float discount)
 Network::Network(int input_length, float rate)
 {
     input = createVector(input_length, 0);
-    threshold = 0;
+    threshold = 10;
     decay_rate = 1/pow(10, 5);
 
     learning_rate = rate;
@@ -62,7 +62,7 @@ void Network::update(Vector in)
             best_discount = i;
     }
 
-    if(lowest_error > threshold)
+    if(lowest_error > threshold*discounts[best_prediction])
     {
         prediction = best_discount;
         current_error = computeError(input, templates[prediction].first);
