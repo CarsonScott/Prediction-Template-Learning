@@ -1,5 +1,5 @@
 # Prediction Template Learning
-The Prediction Template Learning algorithm (PTL) is an online learning algorithm that makes predictions about the environment to improve itself.
+Prediction Template Learning (PTL) is an online learning algorithm that makes predictions about the environment to improve itself.
 
 [Theory (Self-Organizing Predictions)](https://github.com/CarsonScott/self-organizing-predictions)
 
