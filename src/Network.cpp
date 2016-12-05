@@ -14,12 +14,17 @@ Vector Network::updatePrediction(Vector in, Vector temp, float discount)
 Network::Network(int input_length, float rate)
 {
     input = createVector(input_length, 0);
-    threshold = 10;
-    decay_rate = 1/pow(threshold, 5);
+    threshold = 0;
+    decay_rate = 1/pow(10, 5);
 
     learning_rate = rate;
     current_error = 0;
     prediction = 0;
+}
+
+void Network::setThreshold(float t)
+{
+    threshold = t;
 }
 
 void Network::createTemplates(int temps)

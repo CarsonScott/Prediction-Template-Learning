@@ -17,6 +17,7 @@ class Network
     Vector updatePrediction(Vector, Vector, float);
 public:
     Network(int, float);
+    void setThreshold(float);
     void createTemplates(int);
     void update(Vector);
     float getError();
