@@ -15,7 +15,7 @@ Network::Network(int input_length, float rate)
 {
     input = createVector(input_length, 0);
     threshold = 0;
-    decay_rate = 0.0000001;
+    decay_rate = 0.000001;
     learning_rate = rate;
     current_error = 0;
     prediction = 0;
@@ -41,16 +41,6 @@ void Network::createTemplates(int temps)
 void Network::update(Vector in)
 {
     input = in;
-
-    if(computeError(input, templates[prediction].second) > threshold)
-    {
-        discounts[prediction] += decay_rate/(1/decay_rate);
-        if(discounts[prediction] > 1)
-        {
-            discounts[prediction] = 1;
-        }
-    }
-
     templates[prediction].second = updatePrediction(input, templates[prediction].second, discounts[prediction]);
 
     int best_discount = 0;
@@ -70,6 +60,8 @@ void Network::update(Vector in)
         {
             best_discount = i;
         }
+
+        discounts[i] += decay_rate/pow(templates.size(), 2);
     }
 
     if(lowest_error > threshold*discounts[best_prediction])
@@ -83,13 +75,13 @@ void Network::update(Vector in)
         current_error = lowest_error;
     }
 
-    templates[prediction].first = updatePrediction(input, templates[prediction].first, discounts[prediction]);
-
     discounts[prediction] -= decay_rate;
     if(discounts[prediction] < 0)
     {
         discounts[prediction] = 0;
     }
+
+    templates[prediction].first = updatePrediction(input, templates[prediction].first, discounts[prediction]);
 }
 
 float Network::getError()
