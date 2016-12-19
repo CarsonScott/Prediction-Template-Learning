@@ -47,5 +47,5 @@ float computeError(Vector a, Vector b)
     {
         error += pow(a[i]-b[i], 2);
     }
-    return error;
+    return error/a.size();
 }

@@ -61,7 +61,8 @@ void Network::update(Vector in)
             best_discount = i;
         }
 
-        discounts[i] += decay_rate/pow(templates.size(), 2);
+        // May need to change to be independent of templates.size()
+        discounts[i] += decay_rate/templates.size();
     }
 
     if(lowest_error > threshold*discounts[best_prediction])
