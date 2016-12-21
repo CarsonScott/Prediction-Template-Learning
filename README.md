@@ -19,7 +19,7 @@ The following is a graph of the error rate. In this case, the algorithm recieves
 ![](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/figure_1.png)
 Fig. 1
 
-As you can see, the error rate is subject to exponential decay and eventually converges to zero given enough time to train. The following is also a graph of the error rate, but with a larger input size. The algorithm now recieves 20 values-per-input, 100 inputs-per-sequence.  
+As you can see, the error rate is subject to exponential decay and eventually converges to zero given enough time to train. The following is also a graph of the error rate, but with a larger input size. The algorithm now recieves 50 values-per-input, 100 inputs-per-sequence.  
 
 ![](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/figure_2.png)
 Fig. 2
