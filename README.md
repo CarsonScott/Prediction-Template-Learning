@@ -13,3 +13,7 @@ Second, the input is compared to the initial states for each state-pair. The sim
 Finally, the selected state-pair's initial state is compared to the input and updated to better resemble to measured state.
 
 PTL distinguishes itself from MLP's through its learning/adaptation method. The hidden layer is the only adaptable component and is responsible for the network's development as a whole. Hidden units are updated by comparing the predicted initial and final states to the actual states and correcting the error. The adjusted state-pair has a closer resemblence to the measured states, and thus provides more accurate predictions for the future.
+
+## Data
+The following is a graph of the error rate. In this case, the algorithm recieves a sequence of 100 inputs (each a set of 20 values), one at a time, with the task of learning the correct order of patterns and predicting the pattern at a future time step.
+![](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/figure_1.png)
