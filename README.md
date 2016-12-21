@@ -25,3 +25,10 @@ As you can see, the error rate decays exonentially and, given enough time to tra
 
 ![Fig. 2](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/img/figure_2.png)
 Fig. 2
+
+This time I've doubled the inputs in a sequence, raising the the total number of patterns the algorithm must learn to two-hundred.
+
+![](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/img/figure_3.png)
+Fig. 3
+
+It takes roughly twice as long to learn double the amount of information from the previous tests which makes sense. Learning time appears to scale linearly with amount of information.
