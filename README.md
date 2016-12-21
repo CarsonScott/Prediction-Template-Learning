@@ -17,3 +17,5 @@ PTL distinguishes itself from MLP's through its learning/adaptation method. The 
 ## Data
 The following is a graph of the error rate. In this case, the algorithm recieves a sequence of 100 inputs (each 10 values), one at a time, with the task of learning the correct order of patterns and predicting the pattern at a future time step.
 ![](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/figure_1.png)
+
+In this example, PTL's error rate is subject to exponential decay and eventually converges to an error rate of zero.
