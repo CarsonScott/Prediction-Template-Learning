@@ -17,11 +17,13 @@ PTL distinguishes itself from MLP's through its learning/adaptation method. The 
 ## Data
 Now for some data collected while running tests. To test PTL's prediction ability, I generated random sequences of inputs and fed it to the algorithm, then calculated and plotted the error at each time step. 
 
-For this test, the algorithm recieves a sequence of 100 inputs (each 10 values), one at a time, with the task of learning the correct order of patterns and predicting the pattern at a future time step.
+In this test, each input vector contained 10 values, and the total input sequence had a length of 100 (i.e. the algorithm must learn to make 100 unique predictions).
 ![Fig. 1](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/img/figure_1.png)
 Fig. 1
 
-As you can see, the error rate is subject to exponential decay and eventually converges to zero given enough time to train. The following is also a graph of the error rate, but with a larger input size. The algorithm now recieves 50 values-per-input, 100 inputs-per-sequence.  
+As you can see, the error rate decays exonentially and, given enough time to train, converges to zero. 
+
+The next test also contains a 100-input sequence, however the inputs are now 50 values long instead of 10. 
 
 ![Fig. 2](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/img/figure_2.png)
 Fig. 2
