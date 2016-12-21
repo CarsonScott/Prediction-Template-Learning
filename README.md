@@ -31,4 +31,4 @@ This time I've doubled the inputs in a sequence, raising the the total number of
 ![](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/img/figure_3.png)
 Fig. 3
 
-It takes roughly twice as long to learn double the amount of information from the previous tests which makes sense. Learning time appears to scale linearly with amount of information.
+It takes roughly twice as long to learn double the amount of information from the previous tests. Learning time appears to scale linearly with amount of material that needs to be retained.
