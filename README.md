@@ -31,7 +31,7 @@ This time I've doubled the inputs in a sequence, raising the the total number of
 ![Fig. 3](https://github.com/CarsonScott/Prediction-Template-Learning/blob/master/img/figure_3.png)
 Fig. 3
 
-It takes roughly twice as long to learn double the amount of information from the previous tests. Learning time appears to scale linearly with amount of material that needs to be retained.
+It takes roughly twice as long to learn double the amount of information from the previous tests. Time spent learning appears to scale linearly with the amount of material that needs to be retained, which reflects the way humans learn.
 
 I raised the input size back up to 50 and kept the length of the sequence at 200.
 
