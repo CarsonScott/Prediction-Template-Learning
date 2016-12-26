@@ -29,8 +29,6 @@ Network::Network(int input_length, int max_temps, float rate)
     learning_rate = rate;
     current_error = 0;
     prediction = 0;
-
-    createTemplate(createVector(input.size(), 0));
 }
 
 void Network::setThreshold(float t)
@@ -65,6 +63,11 @@ std::vector<Vector> Network::computePredictions(Vector in, int predictions)
 void Network::train(Vector in)
 {
     input = in;
+    if(templates.size() == 0)
+    {
+        createTemplate(input);
+    }
+
     templates[prediction].second = updatePrediction(input, templates[prediction].second, discounts[prediction]);
 
     int best_discount = 0;
@@ -85,12 +88,12 @@ void Network::train(Vector in)
             best_discount = i;
         }
 
-        discounts[i] += decay_rate/templates.size();
+        discounts[i] += decay_rate/max_templates;
     }
 
     if(lowest_error > threshold*discounts[best_prediction])
     {
-        if(templates.size() == max_templates)
+        if(templates.size() >= max_templates)
         {
             prediction = best_discount;
         }
