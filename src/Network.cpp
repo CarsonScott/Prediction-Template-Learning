@@ -11,14 +11,26 @@ Vector Network::updatePrediction(Vector in, Vector temp, float discount)
     return p;
 }
 
-Network::Network(int input_length, float rate)
+void Network::createTemplate(Vector initial)
+{
+    VPair temp;
+    temp.first = initial;
+    temp.second = createVector(input.size(), 0);
+    templates.push_back(temp);
+    discounts.push_back(1);
+}
+
+Network::Network(int input_length, int max_temps, float rate)
 {
     input = createVector(input_length, 0);
+    max_templates = max_temps;
     threshold = 0;
     decay_rate = 0.000001;
     learning_rate = rate;
     current_error = 0;
     prediction = 0;
+
+    createTemplate(createVector(input.size(), 0));
 }
 
 void Network::setThreshold(float t)
@@ -26,19 +38,31 @@ void Network::setThreshold(float t)
     threshold = t;
 }
 
-void Network::createTemplates(int temps)
+std::vector<Vector> Network::computePredictions(Vector in, int predictions)
 {
-    for(int i = 0; i < temps; i++)
+    Vector x = in;
+    std::vector<Vector> chain;
+
+    for(int j = 0; j < predictions; j++)
     {
-        VPair vp;
-        vp.first = createVector(input.size(), 0);
-        vp.second = createVector(input.size(), 0);
-        templates.push_back(vp);
-        discounts.push_back(1);
+        int best = 0;
+        float error = -1;
+        for(int i = 0; i < templates.size(); i++)
+        {
+            float e = computeError(x, templates[i].first);
+            if(e < error || error == -1)
+            {
+                error = e;
+                best = i;
+            }
+        }
+        x = templates[best].second;
+        chain.push_back(x);
     }
+    return chain;
 }
 
-void Network::update(Vector in)
+void Network::train(Vector in)
 {
     input = in;
     templates[prediction].second = updatePrediction(input, templates[prediction].second, discounts[prediction]);
@@ -61,13 +85,20 @@ void Network::update(Vector in)
             best_discount = i;
         }
 
-        // May need to change to be independent of templates.size()
         discounts[i] += decay_rate/templates.size();
     }
 
     if(lowest_error > threshold*discounts[best_prediction])
     {
-        prediction = best_discount;
+        if(templates.size() == max_templates)
+        {
+            prediction = best_discount;
+        }
+        else
+        {
+            createTemplate(input);
+            prediction = templates.size()-1;
+        }
         current_error = computeError(input, templates[prediction].first);
     }
     else
@@ -90,7 +121,7 @@ float Network::getError()
     return current_error;
 }
 
-Vector Network::getPredictedState()
+Vector Network::getPrediction()
 {
     return templates[prediction].second;
 }

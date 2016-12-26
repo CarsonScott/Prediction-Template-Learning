@@ -6,6 +6,7 @@
 class Network
 {
     Vector input;
+    int max_templates;
     float learning_rate;
     float decay_rate;
     float threshold;
@@ -14,14 +15,16 @@ class Network
     Vector discounts;
     int prediction;
 
+    void createTemplate(Vector);
     Vector updatePrediction(Vector, Vector, float);
 public:
-    Network(int, float);
+    Network(int, int, float);
     void setThreshold(float);
-    void createTemplates(int);
-    void update(Vector);
+    void setTemplates(int);
+    void train(Vector);
     float getError();
-    Vector getPredictedState();
+    Vector getPrediction();
+    std::vector<Vector> computePredictions(Vector, int);
 };
 
 #endif // NETWORK_HPP_INCLUDED
