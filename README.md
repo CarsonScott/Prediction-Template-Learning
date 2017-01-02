@@ -3,6 +3,8 @@ Prediction Template Learning (PTL) is an online machine learning algorithm that 
 
 [Theory (Self-Organizing Predictions)](https://github.com/CarsonScott/self-organizing-predictions)
 
+[Learning Algorithm ](https://github.com/CarsonScott/TLearner)
+
 ## System Structure
 States are stored in state-pairs as "templates". A state-pair represents a state transition from an initial state to the following state. The state templates are adjusted according to some measured error between the ideal (stored) and measured (actual) input. This expectation-maximization process drives the system toward the lowest possible error measurement between ideal and measured states.
 
