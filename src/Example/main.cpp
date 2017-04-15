@@ -22,7 +22,7 @@ int main()
     for(int i = 0; i < sequence_length; i++)
     {
         Vector in;
-        for(int j = 0; j < input_dim; j++)
+        for(int j = 0; j < input_length; j++)
         {
             float x = rand() % 10;
 
